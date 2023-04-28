@@ -13,11 +13,7 @@ public class WeatherService {
 
     private final WeatherClient weatherClient;
     public WeatherDto getWeather() {
-        String response = weatherClient.getWeatherForCity("warszawa");
-        log.info(response);
-        response = weatherClient.getForecast(52.23, 21.01);
-        log.info(response);
-        return null;
+        return weatherClient.getWeatherForCity("Warszawa");
     }
 
 }
