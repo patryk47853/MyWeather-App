@@ -9,40 +9,43 @@
 
 <div class="card">
     <div class="search">
-        <input type="text" placeholder="Enter city name" spellcheck="false">
-        <button><img src="images/search.png"></button>
+        <form th:action="@{/weather}" method="get">
+        <input type="text" placeholder="Enter city name" spellcheck="false" name="city">
+        <button type="submit"><img src="images/search.png"></button>
     </div>
-    <div class="weather">
+    <div class="weather" th:if="${weather != null}" th:object="${weather}">
         <img src="images/clear.png" class="weather-icon">
-        <h1 class="temp">17°C</h1>
+        <h1 class="temp" th:text="${weather.temp} + '°C'"></h1>
         <br>
-        <h2 class="city">Warsaw</h2>
+        <h2 class="city" th:text="${weather.name}"></h2>
         <br>
         <div class="details">
             <div class="col">
                 <img src="images/humidity.png">
                 <div>
-                    <p class="humidity">50%</p>
+                    <p class="humidity" th:text="${weather.humidity} + '%'"></p>
                     <p>Humidity</p>
                 </div>
             </div>
             <div class="col">
                 <img src="images/pressure.png">
                 <div>
-                    <p class="pressure">1017 hPa</p>
+                    <p class="pressure" th:text="${weather.pressure} + ' hPa'"></p>
                     <p>Pressure</p>
                 </div>
             </div>
             <div class="col">
                 <img src="images/wind.png">
                 <div>
-                    <p class="wind">15 km/h</p>
+                    <p class="wind" th:text="${weather.windSpeed} + ' km/h'"> km/h</p>
                     <p>Wind Speed</p>
                 </div>
             </div>
         </div>
     </div>
+    </form>
 </div>
+
 
 </body>
 </html>
