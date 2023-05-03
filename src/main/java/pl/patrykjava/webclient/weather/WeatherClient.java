@@ -17,11 +17,12 @@ public class WeatherClient {
     private String API_KEY;
 
     public WeatherDto getWeatherForCity(String city) {
-        OpenWeatherDto openWeatherDto = callGetMethod("weather?q={city}&appid={apiKey}&units=metric&lang=pl",
+        OpenWeatherDto openWeatherDto = callGetMethod("weather?q={city}&appid={apiKey}&units=metric&lang=en",
                 OpenWeatherDto.class,
                 city, API_KEY);
         return WeatherDto.builder()
-                .temp(openWeatherDto.getMain().getTemp())
+                .temp((int) openWeatherDto.getMain().getTemp())
+                .name(openWeatherDto.getName())
                 .humidity(openWeatherDto.getMain().getHumidity())
                 .pressure(openWeatherDto.getMain().getPressure())
                 .windSpeed(openWeatherDto.getWind().getSpeed())

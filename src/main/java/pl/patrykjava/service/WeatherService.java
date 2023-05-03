@@ -12,8 +12,8 @@ import pl.patrykjava.webclient.weather.WeatherClient;
 public class WeatherService {
 
     private final WeatherClient weatherClient;
-    public WeatherDto getWeather() {
-        return weatherClient.getWeatherForCity("Warszawa");
+    public WeatherDto getWeather(String city) {
+        return weatherClient.getWeatherForCity(city);
     }
 
 }
