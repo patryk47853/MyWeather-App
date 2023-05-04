@@ -1,6 +1,5 @@
 package pl.patrykjava.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -19,4 +18,5 @@ public class WeatherDto {
     private int pressure;
     private int humidity;
     private float windSpeed;
+    private String weatherIcon;
 }

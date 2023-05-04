@@ -1,13 +1,20 @@
 package pl.patrykjava.webclient.weather;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
+import pl.patrykjava.config.WeatherIconConfig;
 import pl.patrykjava.model.WeatherDto;
 import pl.patrykjava.webclient.weather.dto.OpenWeatherDto;
 
+import java.util.Map;
+
 @Component
 public class WeatherClient {
+
+    @Autowired
+    private Map<Integer, String> weatherIcons;
 
     private RestTemplate restTemplate = new RestTemplate();
 
@@ -21,11 +28,16 @@ public class WeatherClient {
                 OpenWeatherDto.class,
                 city, API_KEY);
 
+        int weatherId = openWeatherDto.getWeather().get(0).getId();
+        String weatherIcon = weatherIcons.get(weatherId);
+
         String temperatureString = String.format("%d°C", (int) openWeatherDto.getMain().getTemp());
+
         return WeatherDto.builder()
                 .cityTemp(temperatureString)
                 .cityName(openWeatherDto.getName())
-                .weatherId(openWeatherDto.getWeather().get(0).getId())
+                .weatherId(weatherId)
+                .weatherIcon(weatherIcon)
                 .humidity(openWeatherDto.getMain().getHumidity())
                 .pressure(openWeatherDto.getMain().getPressure())
                 .windSpeed(openWeatherDto.getWind().getSpeed())

@@ -1,7 +1,7 @@
 package pl.patrykjava.webclient.weather.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
+import pl.patrykjava.config.WeatherIconConfig;
 
 import java.util.List;
 
@@ -12,4 +12,5 @@ public class OpenWeatherDto {
     private OpenWeatherWindDto wind;
     private List<OpenWeatherWeatherDto> weather;
     private String name;
+    private String weatherIcon;
 }
