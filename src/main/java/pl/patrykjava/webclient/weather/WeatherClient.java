@@ -24,7 +24,8 @@ public class WeatherClient {
         String temperatureString = String.format("%d°C", (int) openWeatherDto.getMain().getTemp());
         return WeatherDto.builder()
                 .cityTemp(temperatureString)
-                .name(openWeatherDto.getName())
+                .cityName(openWeatherDto.getName())
+                .weatherId(openWeatherDto.getWeather().get(0).getId())
                 .humidity(openWeatherDto.getMain().getHumidity())
                 .pressure(openWeatherDto.getMain().getPressure())
                 .windSpeed(openWeatherDto.getWind().getSpeed())
