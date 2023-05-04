@@ -20,8 +20,10 @@ public class WeatherClient {
         OpenWeatherDto openWeatherDto = callGetMethod("weather?q={city}&appid={apiKey}&units=metric&lang=en",
                 OpenWeatherDto.class,
                 city, API_KEY);
+
+        String temperatureString = String.format("%d°C", (int) openWeatherDto.getMain().getTemp());
         return WeatherDto.builder()
-                .temp((int) openWeatherDto.getMain().getTemp())
+                .cityTemp(temperatureString)
                 .name(openWeatherDto.getName())
                 .humidity(openWeatherDto.getMain().getHumidity())
                 .pressure(openWeatherDto.getMain().getPressure())
