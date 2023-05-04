@@ -18,8 +18,16 @@ public class WeatherController {
     }
 
     @GetMapping("/weather")
-    public String home(@RequestParam String city, Model model) {
+    public String home(@RequestParam(required = false) String city, Model model) {
+        if (city == null) {
+            return "home";
+        }
+
         WeatherDto weather = weatherService.getWeather(city);
+        if (weather == null) {
+            return "error";
+        }
+
         model.addAttribute("weather", weather);
         return "weather";
     }
