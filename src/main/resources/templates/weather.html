@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>MyWeather</title>
+    <title th:text="'MyWeather - ' + ${weather.cityName}"></title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
