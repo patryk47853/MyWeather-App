@@ -1,8 +1,6 @@
 package pl.patrykjava.config;
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -15,7 +13,7 @@ public class WeatherIconConfig {
 
     @Bean
     public Map<Integer, String> weatherIcons() {
-        Map<Integer, String> weatherIcons = new HashMap<Integer, String>() {{
+        Map<Integer, String> weatherIcons = new HashMap<>() {{
             put(200, "storm");
             put(201, "storm");
             put(202, "storm");

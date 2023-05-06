@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class WeatherDto {
 
+
     private float temp;
     private String cityTemp;
     private int weatherId;
