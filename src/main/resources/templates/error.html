@@ -9,12 +9,7 @@
 </head>
 <body>
 
-<div class="card">
-    <div class="search">
-        <form class="search" th:action="@{/weather}" method="get">
-            <input type="text" placeholder="Enter city name..." spellcheck="false" name="city">
-            <button type="submit"><img src="images/search.png"></button>
-    </div>
+<div th:replace="bar.html"></div>
     <br><br>
     <div class="bar error">
         <p th:text="'Invalid input - please try again'"></p>
