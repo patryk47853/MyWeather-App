@@ -9,15 +9,11 @@
 </head>
 <body>
 
-<div th:replace="bar.html"></div>
-    <br><br>
-    <div class="bar error">
-        <p th:text="'Invalid input - please try again'"></p>
-    </div>
+<div th:replace="~{bar.html}"></div>
+<br><br>
+<div class="bar error">
+    <p th:text="'Invalid input - please try again'"></p>
 </div>
-</form>
-</div>
-
 
 </body>
 </html>
