@@ -43,6 +43,7 @@ public class WeatherClient {
                 .build();
     }
 
+    // To be used in future versions of MyWeather App
     public String getForecast(double lat, double lon) {
         return callGetMethod("forecast?lat={lat}&lon={lon}&appid={apiKey}&units=metric&lang=pl",
                 String.class,
