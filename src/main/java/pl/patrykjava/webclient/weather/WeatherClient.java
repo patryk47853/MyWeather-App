@@ -12,8 +12,7 @@ import java.util.Map;
 @Component
 public class WeatherClient {
 
-    @Autowired
-    private Map<Integer, String> weatherIcons;
+    private final Map<Integer, String> weatherIcons;
 
     private RestTemplate restTemplate = new RestTemplate();
 
@@ -21,6 +20,10 @@ public class WeatherClient {
 
     @Value("${api.key}")
     private String API_KEY;
+
+    public WeatherClient(Map<Integer, String> weatherIcons) {
+        this.weatherIcons = weatherIcons;
+    }
 
     public WeatherDto getWeatherForCity(String city) {
         OpenWeatherDto openWeatherDto = callGetMethod("weather?q={city}&appid={apiKey}&units=metric&lang=en",
