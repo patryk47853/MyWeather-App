@@ -13,7 +13,8 @@ public class WeatherIconConfig {
 
     @Bean
     public Map<Integer, String> weatherIcons() {
-        Map<Integer, String> weatherIcons = new HashMap<>() {{
+
+        return new HashMap<>() {{
             put(200, "storm");
             put(201, "storm");
             put(202, "storm");
@@ -70,7 +71,5 @@ public class WeatherIconConfig {
             put(803, "clouds");
             put(804, "clouds");
         }};
-
-        return weatherIcons;
     }
 }
