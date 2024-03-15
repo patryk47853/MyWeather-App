@@ -8,16 +8,16 @@
 
 
 ### 🌧 Technologies:
-- Backend: Java, Spring, Spring Boot, Spring MVC, Project Lombok
+- Backend: Java, Spring, Spring Boot, Spring MVC
 
 
 - Configuration: Git, Maven, OpenWeatherAPI
 
 
-- Frontend: HTML/CSS
+- Frontend: HTML/CSS, Thymeleaf
 
 
-- Tests & tools: JUnit 5, Mockito, DevTools, Thymeleaf
+- Tests: JUnit 5, Mockito
 
 
 ### ⚡ How to run this app?
